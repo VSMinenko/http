@@ -14,8 +14,12 @@
     <tr *ngFor="let data of sortTable.data">
       <td>{{ data?.id }}</td>
       <td>{{ data?.title }}</td>
-      <td><img class="photo" src="{{ data?.url }}" alt="" /></td>
-      <td><img src="{{ data?.thumbnailUrl }}" alt="proto" /></td>
+      <td>
+        <img nz-image class="photo" nzSrc="{{ data?.url }}" alt="" />
+      </td>
+      <td>
+        <img nz-image nzSrc="{{ data?.thumbnailUrl }}" alt="proto" />
+      </td>
     </tr>
   </tbody>
 </nz-table>
