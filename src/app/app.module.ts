@@ -16,6 +16,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { PostsModule } from './pages/posts/posts.module';
 import { ApiService } from './services/api.service';
 import { CommonModule } from '@angular/common';
+import { PhotosModule } from './pages/photos/photos.module';
 
 registerLocaleData(en);
 
@@ -32,6 +33,7 @@ registerLocaleData(en);
     NzMenuModule,
     PostsModule,
     CommonModule,
+    PhotosModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, ApiService],
   bootstrap: [AppComponent],

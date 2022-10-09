@@ -21,7 +21,7 @@ export class PostsComponent implements OnInit {
       priority: 2,
     },
     {
-      title: 'Title',
+      title: 'url',
       compare: null,
       priority: false,
     },
@@ -32,14 +32,14 @@ export class PostsComponent implements OnInit {
     },
   ];
 
-  constructor(private http: ApiService) {}
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     this.getPosts();
   }
 
   getPosts(): void {
-    this.http.getPosts().subscribe((posts) => {
+    this.api.getPosts().subscribe((posts) => {
       console.log(posts);
       this.posts = posts;
     });

@@ -9,6 +9,13 @@ export interface IPosts {
   userId: number;
 }
 
+export interface DataItem {
+  id: number;
+  title: any;
+  url: URL;
+  thumbnailUrl: URL;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,8 +24,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getTodos() {
-    return this.http.get<any>(`${this.apiUrl}/todos`);
+  getPhotos(): Observable<DataItem[]> {
+    return this.http.get<DataItem[]>(`${this.apiUrl}/photos`);
   }
 
   getPosts(): Observable<IPosts[]> {

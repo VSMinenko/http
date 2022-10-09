@@ -1,0 +1,21 @@
+<nz-table #sortTable [nzData]="photos" nzTableLayout="fixed">
+  <thead>
+    <tr>
+      <th
+        *ngFor="let column of listOfColumn"
+        [nzSortFn]="column.compare"
+        [nzSortPriority]="column.priority"
+      >
+        {{ column.title }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of sortTable.data">
+      <td>{{ data?.id }}</td>
+      <td>{{ data?.title }}</td>
+      <td><img class="photo" src="{{ data?.url }}" alt="" /></td>
+      <td><img src="{{ data?.thumbnailUrl }}" alt="proto" /></td>
+    </tr>
+  </tbody>
+</nz-table>
