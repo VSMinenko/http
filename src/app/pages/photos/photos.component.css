@@ -1,3 +1,7 @@
 .photo {
   width: 50%;
 }
+
+td {
+  text-align: center;
+}

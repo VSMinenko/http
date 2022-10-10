@@ -1,4 +1,4 @@
-<nz-table #sortTable [nzData]="photos" nzTableLayout="fixed">
+<nz-table class="table" #sortTable [nzData]="photos" nzTableLayout="fixed">
   <thead>
     <tr>
       <th
@@ -15,10 +15,7 @@
       <td>{{ data?.id }}</td>
       <td>{{ data?.title }}</td>
       <td>
-        <img nz-image class="photo" nzSrc="{{ data?.url }}" alt="" />
-      </td>
-      <td>
-        <img nz-image nzSrc="{{ data?.thumbnailUrl }}" alt="proto" />
+        <img nz-image width="50px" [nzSrc]="data?.url!!" alt="proto" />
       </td>
     </tr>
   </tbody>
