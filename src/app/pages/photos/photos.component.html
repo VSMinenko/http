@@ -10,36 +10,20 @@
       </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="align">
     <tr *ngFor="let data of sortTable.data">
-      <td>
-        <span
-          nz-popover
-          nzType="primary"
-          nzPopoverTitle="Title"
-          nzPopoverContent="Content"
-          >{{ data?.id }}</span
-        >
+      <td
+        nz-popover
+        nzType="primary"
+        nzPopoverTitle="Url"
+        nzPopoverContent="{{ data?.url }}"
+      >
+        {{ data?.id }}
       </td>
-      <td>
-        <span (click)="showModal()"> {{ data?.title }}</span>
-      </td>
+      <td (click)="createModal(data?.title)">{{ data?.title }}</td>
       <td>
         <img nz-image width="50px" [nzSrc]="data?.url!" alt="proto" />
       </td>
     </tr>
   </tbody>
 </nz-table>
-
-<nz-modal
-  [(nzVisible)]="isVisible"
-  nzTitle="The first Modal"
-  (nzOnCancel)="handleCancel()"
-  (nzOnOk)="handleOk()"
->
-  <ng-container *nzModalContent>
-    <p>Content one</p>
-    <p>Content two</p>
-    <p>Content three</p>
-  </ng-container>
-</nz-modal>

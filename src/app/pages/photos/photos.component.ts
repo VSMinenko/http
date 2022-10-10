@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService, DataItem } from 'src/app/services/api.service';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { PostsComponent } from '../posts/posts.component';
+
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
@@ -17,7 +20,6 @@ export class PhotosComponent implements OnInit {
     },
     {
       title: 'title',
-      sortOrder: null,
       compare: (a: DataItem, b: DataItem) => a.title.localeCompare(b.title),
       priority: 2,
     },
@@ -28,16 +30,29 @@ export class PhotosComponent implements OnInit {
     },
   ];
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private nzModalService: NzModalService
+  ) {}
 
   ngOnInit(): void {
     this.getPhotos();
   }
 
   getPhotos(): void {
-    this.api.getPhotos().subscribe((photos) => {
+    this.apiService.getPhotos().subscribe((photos) => {
       console.log(photos);
       this.photos = photos;
+    });
+  }
+
+  createModal(title: string): void {
+    this.nzModalService.create({
+      nzTitle: title,
+      nzContent: PostsComponent,
+      nzClosable: true,
+      nzWidth: '90%',
+      nzOnOk: () => new Promise((resolve) => setTimeout(resolve, 1000)),
     });
   }
 
