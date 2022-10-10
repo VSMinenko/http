@@ -12,8 +12,8 @@ export interface IPosts {
 export interface DataItem {
   id: number;
   title: any;
-  url: URL;
-  thumbnailUrl: URL;
+  url: string;
+  thumbnailUrl: string;
 }
 
 @Injectable({

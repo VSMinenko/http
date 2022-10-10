@@ -16,17 +16,13 @@ export class PhotosComponent implements OnInit {
     },
     {
       title: 'title',
-      compare: null,
-      priority: false,
+      sortOrder: null,
+      compare: (a: DataItem, b: DataItem) => a.title.localeCompare(b.title),
+      priority: 2,
     },
     {
-      title: 'url',
-      compare: null,
-      priority: false,
-    },
-    {
-      title: 'thumbnailUrl',
-      compare: null,
+      title: 'Url',
+      // compare: null,
       priority: false,
     },
   ];
