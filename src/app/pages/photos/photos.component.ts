@@ -7,6 +7,7 @@ import { ApiService, DataItem } from 'src/app/services/api.service';
 })
 export class PhotosComponent implements OnInit {
   photos: DataItem[] = [];
+  isVisible = false;
 
   listOfColumn = [
     {
@@ -22,7 +23,7 @@ export class PhotosComponent implements OnInit {
     },
     {
       title: 'Url',
-      // compare: null,
+      compare: null,
       priority: false,
     },
   ];
@@ -38,5 +39,19 @@ export class PhotosComponent implements OnInit {
       console.log(photos);
       this.photos = photos;
     });
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
   }
 }

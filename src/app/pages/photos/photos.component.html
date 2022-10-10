@@ -1,4 +1,4 @@
-<nz-table class="table" #sortTable [nzData]="photos" nzTableLayout="fixed">
+<nz-table #sortTable [nzData]="photos" nzTableLayout="fixed">
   <thead>
     <tr>
       <th
@@ -12,11 +12,34 @@
   </thead>
   <tbody>
     <tr *ngFor="let data of sortTable.data">
-      <td>{{ data?.id }}</td>
-      <td>{{ data?.title }}</td>
       <td>
-        <img nz-image width="50px" [nzSrc]="data?.url!!" alt="proto" />
+        <span
+          nz-popover
+          nzType="primary"
+          nzPopoverTitle="Title"
+          nzPopoverContent="Content"
+          >{{ data?.id }}</span
+        >
+      </td>
+      <td>
+        <span (click)="showModal()"> {{ data?.title }}</span>
+      </td>
+      <td>
+        <img nz-image width="50px" [nzSrc]="data?.url!" alt="proto" />
       </td>
     </tr>
   </tbody>
 </nz-table>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="The first Modal"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <p>Content one</p>
+    <p>Content two</p>
+    <p>Content three</p>
+  </ng-container>
+</nz-modal>
