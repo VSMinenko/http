@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 
 import { PostsRoutingModule } from './posts-routing.module';
-
 import { PostsComponent } from './posts.component';
-import { NzTableModule } from 'ng-zorro-antd/table';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  imports: [PostsRoutingModule, NzTableModule, CommonModule],
+  imports: [PostsRoutingModule, SharedModule],
   declarations: [PostsComponent],
   exports: [PostsComponent],
 })

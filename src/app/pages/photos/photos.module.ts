@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { PhotosRoutingModule } from './photos-routing.module';
 import { PhotosComponent } from './photos.component';
-import { NzTableModule } from 'ng-zorro-antd/table';
-import { NzImageModule } from 'ng-zorro-antd/image';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [PhotosComponent],
-  imports: [CommonModule, PhotosRoutingModule, NzTableModule, NzImageModule],
+  imports: [PhotosRoutingModule, SharedModule],
   exports: [PhotosComponent],
 })
 export class PhotosModule {}
